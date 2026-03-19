@@ -5,7 +5,7 @@ import com.murcia.utils.*;
 public class Proyecto {
 
     public static void main(String[] args) {
-        
+          
     String option[] = {"1. Registrar pacientes ", "2. Asignsr citas", "3. Atender pacientes", "4. Ver informacion del paciente", "5. 5alir del sistema"};
     Menu menu = new Menu(option, 'V', "   ", "MENU DE INICIO");   
     
