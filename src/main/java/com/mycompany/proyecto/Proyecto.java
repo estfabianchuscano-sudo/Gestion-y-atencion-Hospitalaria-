@@ -1,7 +1,7 @@
 package com.mycompany.proyecto;
 
 import com.murcia.utils.*;
-
+       
 public class Proyecto {
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Proyecto {
             switch (sel) {
 
                 case '1':
-                    System.out.println("Registrar paciente");
+                    System.out.println("Registrar  paciente");
                     break;
 
                 case '2':
