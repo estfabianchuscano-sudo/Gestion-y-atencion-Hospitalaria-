@@ -79,7 +79,7 @@ public class Proyecto {
                     }
 
                     break;
-
+  
                 case '5':
                     System.out.println("Saliendo del sistema");
                     break;

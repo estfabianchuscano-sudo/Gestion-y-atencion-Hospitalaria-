@@ -6,7 +6,7 @@ package com.mycompany.proyecto;
  */
 class Medico {
     
-
+   
     private int id;
     private String nombre;
     private String especialidad;

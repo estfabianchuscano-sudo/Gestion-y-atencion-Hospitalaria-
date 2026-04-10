@@ -5,7 +5,7 @@ package com.mycompany.proyecto;
  * @author fabian
  */
 import java.util.Date;
-
+  
 public class Cita {
     private int id;
     private Date fecha;
@@ -31,4 +31,5 @@ public class Cita {
         this.fecha = nuevaFecha;
         this.hora = nuevaHora;
     }
+    
 }

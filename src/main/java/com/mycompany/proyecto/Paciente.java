@@ -12,7 +12,7 @@ public class Paciente {
     private int edad;
     private String genero;
     private String documento;
-
+  
     public Paciente(int id, String nombre, int edad, String genero, String documento) {
         this.id = id;
         this.nombre = nombre;
