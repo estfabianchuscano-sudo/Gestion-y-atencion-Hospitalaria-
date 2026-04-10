@@ -46,12 +46,25 @@ public class Proyecto {
                     break;
 
                 case '3':
-                    System.out.println("Atender paciente");
-                    
+                    System.out.println("Buscar paciente");
+
+                    String doc = Input.next("Ingrese documento: ");
+                    Paciente encontrado = hospital.buscarPaciente(doc);
+
+                    if (encontrado != null) {
+                    System.out.println(encontrado);
+                    } else {
+                    System.out.println("Paciente no encontrado");
+                    }
                     break;
 
                 case '4':
-                    System.out.println("Ver información");
+                    System.out.println("Lista de pacientes:");
+
+                    for (Paciente pac : hospital.getPacientes()) {
+                    System.out.println(pac);
+                    }
+
                     break;
 
                 case '5':
