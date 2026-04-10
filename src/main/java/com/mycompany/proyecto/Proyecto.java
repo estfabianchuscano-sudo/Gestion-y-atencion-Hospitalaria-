@@ -32,19 +32,31 @@ public class Proyecto {
                     String genero = Input.next("Genero: ");
                     String documento = Input.next("Documento: ");
 
-                    Paciente p = new Paciente(1, nombre, edad, genero, documento);
-                    hospital.registrarPaciente(p);
-
+                    Paciente p = new Paciente(hospital.generarIdPaciente(), nombre, edad, genero, documento);
+                    
                     System.out.println("Paciente registrado");
                     break;
 
                 case '2':
                     System.out.println("Asignar cita");
                     
-                    System.out.println("Asignar cita (en construcción)");
-   
-                    break;
+                    String docCita = Input.next("Documento del paciente: ");
+                    Paciente pac = hospital.buscarPaciente(docCita);
 
+                    if (pac != null) {
+                    String hora = Input.next("Hora: ");
+
+                    Medico m = new Medico(1, "Dr. Juan", "General");
+
+                    Cita cita = new Cita(1, new java.util.Date(), hora, pac, m);
+                    hospital.agregarCita(cita);
+
+                    System.out.println("Cita asignada");
+                    } else {
+                    System.out.println("Paciente no encontrado");
+                    }   
+                    break;
+   
                 case '3':
                     System.out.println("Buscar paciente");
 
@@ -61,8 +73,9 @@ public class Proyecto {
                 case '4':
                     System.out.println("Lista de pacientes:");
 
-                    for (Paciente pac : hospital.getPacientes()) {
-                    System.out.println(pac);
+                    for (int i = 0; i < hospital.getPacientes().size(); i++) {
+                    Paciente p2 = hospital.getPacientes().get(i);
+                    System.out.println(p2);
                     }
 
                     break;
