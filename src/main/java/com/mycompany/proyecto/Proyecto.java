@@ -53,35 +53,39 @@ public class Proyecto {
                     break;
 
                 case '2':
-                    System.out.println("Asignar cita");
-                    
-                    String docCita = Input.next("Documento del paciente: ");
-                    Paciente pac = hospital.buscarPaciente(docCita);
+                String doc = Input.next("Documento paciente: ");
+                Paciente pac = hospital.buscarPaciente(doc);
 
-                    if (pac != null) {
+                if (pac != null) {
+                    hospital.mostrarMedicos();
+                    int op = Input.nextInt("Seleccione medico: ");
+
+                    Medico m = hospital.getMedicos().get(op - 1);
+
                     String hora = Input.next("Hora: ");
 
-                    System.out.println("Lista de médicos:");
-                    hospital.mostrarMedicos();
+                    Cita c = new Cita(
+                        hospital.generarIdCita(),
+                        new java.util.Date(),
+                        hora,
+                        pac,
+                        m
+                    );
 
-                    int opcionMedico = Input.nextInt("Seleccione medico (posición): ");
-                    Medico m = hospital.getMedicos().get(opcionMedico);
-
-                    Cita cita = new Cita(1, new java.util.Date(), hora, pac, m);
-                    hospital.agregarCita(cita);
+                    hospital.agregarCita(c);
 
                     System.out.println("Cita asignada");
-                    } else {
+                } else {
                     System.out.println("Paciente no encontrado");
-                    }   
-                    break;
+                }
+                break;
    
                 case '3':
                     System.out.println("Buscar paciente");
 
-                    String doc = Input.next("Ingrese documento: ");
-                    Paciente encontrado = hospital.buscarPaciente(doc);
-
+                    String d = Input.next("Documento: ");
+                    Paciente encontrado = hospital.buscarPaciente(d);
+                    
                     if (encontrado != null) {
                     System.out.println(encontrado);
                     } else {
@@ -95,12 +99,21 @@ public class Proyecto {
                     break;
   
                 case '5':
-                    System.out.println("Atendiendo paciente");
+                    System.out.println("Atender paciente");
+
+                    hospital.mostrarCitas();
+
+                    int op = Input.nextInt("Seleccione cita a atender: ");
+
+                    hospital.eliminarCita(op - 1);
+
+                    System.out.println("Paciente atendido y cita eliminada");
+
                     break;
 
                 
                 case '6':
-                    System.out.println("Saliendo del sistema");
+                    System.out.println("Saliend1o del sistema");
                     break;
 
                 default:

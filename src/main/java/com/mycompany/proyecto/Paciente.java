@@ -4,7 +4,7 @@ package com.mycompany.proyecto;
  * @author fabian
  */
    
-
+  
 public class Paciente {
 
     private int id;
