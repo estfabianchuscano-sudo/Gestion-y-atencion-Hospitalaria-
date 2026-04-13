@@ -55,13 +55,16 @@ public class Hospital {
         return medicos;
     }
     
+    public ListaEnlazada<Cita> getCitas() {
+    return citas;
+}
+    
     //metodoa para mostras y buscar
     
     public void mostrarMedicos() {
     for (int i = 0; i < medicos.size(); i++) {
-        System.out.println(medicos.get(i));
-    }
-}   
+    System.out.println((i + 1) + ". " + medicos.get(i));    }
+    }   
     
     public Paciente buscarPaciente(String documento) {
     for (int i = 0; i < pacientes.size(); i++) {

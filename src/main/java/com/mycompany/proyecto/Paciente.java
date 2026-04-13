@@ -23,7 +23,7 @@ public class Paciente {
 
     public String getNombre() {
         return nombre;
-    }
+    } 
 
     public String getDocumento() {
         return documento;
@@ -31,6 +31,6 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente: " + nombre + " - Doc: " + documento;
+        return "Paciente: " + nombre + " Doc: " + documento + "Edad: " + edad + " Genero: " + genero;
     }
 }

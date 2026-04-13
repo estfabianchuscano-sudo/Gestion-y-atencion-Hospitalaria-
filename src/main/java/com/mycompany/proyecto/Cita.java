@@ -23,13 +23,16 @@ public class Cita {
         this.estado = "Agendada";
     }
 
-    public void cancelarCita() {
-        estado = "Cancelada";
+    
+    @Override
+    public String toString() {
+        return "Cita #" + id +
+               " Paciente: " + paciente.getNombre() +
+               " Medico: " + medico +
+               " Hora: " + hora +
+               " Estado: " + estado;
     }
-
-    public void reprogramarCita(Date nuevaFecha, String nuevaHora) {
-        this.fecha = nuevaFecha;
-        this.hora = nuevaHora;
-    }
+    
+   
     
 }

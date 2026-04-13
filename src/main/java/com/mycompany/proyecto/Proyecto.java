@@ -1,4 +1,4 @@
-package com.mycompany.proyecto;
+    package com.mycompany.proyecto;
 
 import com.murcia.utils.*;
 
@@ -20,15 +20,6 @@ public class Proyecto {
     hospital.registrarMedico(new Medico(2, "Dra. Ana", "Pediatria"));
     hospital.registrarMedico(new Medico(3, "Dr. Carlos", "Cardiologia"));
     hospital.registrarMedico(new Medico(4, "Dra. Laura", "Dermatologia"));
-    hospital.registrarMedico(new Medico(5, "Dr. Carlos", "Cardiologia"));
-    hospital.registrarMedico(new Medico(7, "Dr. Miguel", "Neurologia"));
-    hospital.registrarMedico(new Medico(8, "Dra. Sofia", "Ginecologia"));
-    hospital.registrarMedico(new Medico(9, "Dr. Andres", "Ortopedia"));
-    hospital.registrarMedico(new Medico(10, "Dra. Paula", "Oftalmologia"));
-    hospital.registrarMedico(new Medico(11, "Dr. Juan", "Psiquiatria"));
-    hospital.registrarMedico(new Medico(12, "Dra. Camila", "Endocrinologia"));
-    hospital.registrarMedico(new Medico(13, "Dr. Felix", "Urologia"));
-    hospital.registrarMedico(new Medico(14, "Dra. Natalia", "Oncologia"));
     
     Menu menu = new Menu(option, 'V', "   ", "MENU DE INICIO");   
     
@@ -47,7 +38,12 @@ public class Proyecto {
                     String genero = Input.next("Genero: ");
                     String documento = Input.next("Documento: ");
 
-                    Paciente p = new Paciente(hospital.generarIdPaciente(), nombre, edad, genero, documento);
+                    Paciente p = new Paciente(
+                    hospital.generarIdPaciente(),
+                    nombre, edad, genero, documento
+                    ); 
+                   
+                    hospital.registrarPaciente(p);
                     
                     System.out.println("Paciente registrado");
                     break;
@@ -78,6 +74,7 @@ public class Proyecto {
                 } else {
                     System.out.println("Paciente no encontrado");
                 }
+                Input.next(""); 
                 break;
    
                 case '3':
@@ -101,13 +98,21 @@ public class Proyecto {
                 case '5':
                     System.out.println("Atender paciente");
 
+                    if (hospital.getCitas().size() == 0) {
+                        System.out.println("No hay citas registradas");
+                        break;
+                    }
+
                     hospital.mostrarCitas();
 
                     int op = Input.nextInt("Seleccione cita a atender: ");
 
-                    hospital.eliminarCita(op - 1);
-
-                    System.out.println("Paciente atendido y cita eliminada");
+                    if (op < 1 || op > hospital.getCitas().size()) {
+                        System.out.println("Opción inválida");
+                    } else {
+                        hospital.eliminarCita(op - 1);
+                        System.out.println("Paciente atendido y cita eliminada");
+                    }
 
                     break;
 
@@ -121,7 +126,7 @@ public class Proyecto {
 
             }
 
-        } while (sel != '5');
+        } while (sel != '6');
     
     
     }
