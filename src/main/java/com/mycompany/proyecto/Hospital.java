@@ -27,7 +27,12 @@ public class Hospital {
 }
     
     public void registrarPaciente(Paciente p) {
-        pacientes.add(p); 
+    pacientes.add(p);
+    System.out.println("DEBUG: Paciente agregado -> " + p);
+    }
+    
+    public int cantidadPacientes() {
+    return pacientes.size();
     }
 
     public void registrarMedico(Medico m) {

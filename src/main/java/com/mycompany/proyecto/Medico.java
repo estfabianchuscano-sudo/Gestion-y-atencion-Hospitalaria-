@@ -3,7 +3,7 @@ package com.mycompany.proyecto;
 /**
  *
  * @author fabian
- */
+ */   
 class Medico {
     
    

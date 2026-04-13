@@ -9,9 +9,10 @@ public class Proyecto {
     String option[] = {
     "1. Registrar pacientes",
     "2. Asignar citas",
-    "3. Atender pacientes",
-    "4. Ver informacion del paciente",
-    "5. Salir del sistema"
+    "3. Buscar un paciente",
+    "4. Ver cantidad de pacientes",
+    "5. Atender pacientes",
+    "6. Salir del sistema"
 };   
     Hospital hospital = new Hospital();
     
@@ -71,16 +72,15 @@ public class Proyecto {
                     break;
 
                 case '4':
-                    System.out.println("Lista de pacientes:");
-
-                    for (int i = 0; i < hospital.getPacientes().size(); i++) {
-                    Paciente p2 = hospital.getPacientes().get(i);
-                    System.out.println(p2);
-                    }
-
+                    System.out.println("Cantidad de pacientes: " + hospital.cantidadPacientes());
                     break;
   
                 case '5':
+                    System.out.println("Atendiendo paciente");
+                    break;
+
+                
+                case '6':
                     System.out.println("Saliendo del sistema");
                     break;
 
