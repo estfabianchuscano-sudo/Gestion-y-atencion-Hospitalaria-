@@ -16,6 +16,20 @@ public class Proyecto {
 };   
     Hospital hospital = new Hospital();
     
+    hospital.registrarMedico(new Medico(1, "Dr. Juan", "General"));
+    hospital.registrarMedico(new Medico(2, "Dra. Ana", "Pediatria"));
+    hospital.registrarMedico(new Medico(3, "Dr. Carlos", "Cardiologia"));
+    hospital.registrarMedico(new Medico(4, "Dra. Laura", "Dermatologia"));
+    hospital.registrarMedico(new Medico(5, "Dr. Carlos", "Cardiologia"));
+    hospital.registrarMedico(new Medico(7, "Dr. Miguel", "Neurologia"));
+    hospital.registrarMedico(new Medico(8, "Dra. Sofia", "Ginecologia"));
+    hospital.registrarMedico(new Medico(9, "Dr. Andres", "Ortopedia"));
+    hospital.registrarMedico(new Medico(10, "Dra. Paula", "Oftalmologia"));
+    hospital.registrarMedico(new Medico(11, "Dr. Juan", "Psiquiatria"));
+    hospital.registrarMedico(new Medico(12, "Dra. Camila", "Endocrinologia"));
+    hospital.registrarMedico(new Medico(13, "Dr. Felix", "Urologia"));
+    hospital.registrarMedico(new Medico(14, "Dra. Natalia", "Oncologia"));
+    
     Menu menu = new Menu(option, 'V', "   ", "MENU DE INICIO");   
     
      char sel;
@@ -47,7 +61,11 @@ public class Proyecto {
                     if (pac != null) {
                     String hora = Input.next("Hora: ");
 
-                    Medico m = new Medico(1, "Dr. Juan", "General");
+                    System.out.println("Lista de médicos:");
+                    hospital.mostrarMedicos();
+
+                    int opcionMedico = Input.nextInt("Seleccione medico (posición): ");
+                    Medico m = hospital.getMedicos().get(opcionMedico);
 
                     Cita cita = new Cita(1, new java.util.Date(), hora, pac, m);
                     hospital.agregarCita(cita);
@@ -69,6 +87,7 @@ public class Proyecto {
                     } else {
                     System.out.println("Paciente no encontrado");
                     }
+                    
                     break;
 
                 case '4':

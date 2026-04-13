@@ -47,6 +47,12 @@ public class Hospital {
         return medicos;
     }
     
+    public void mostrarMedicos() {
+    for (int i = 0; i < medicos.size(); i++) {
+        System.out.println(medicos.get(i));
+    }
+}
+    
     public Paciente buscarPaciente(String documento) {
     for (int i = 0; i < pacientes.size(); i++) {
         Paciente p = pacientes.get(i);
